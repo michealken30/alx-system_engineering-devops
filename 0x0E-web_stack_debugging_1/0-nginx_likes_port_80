@@ -4,6 +4,6 @@
 # remove the default Nginx configuration file.
 rm /etc/nginx/sites-enabled/default
 # configure Nginx to listen on port 80.
-ls -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+ls -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 # restart nginx
 service nginx restart.
