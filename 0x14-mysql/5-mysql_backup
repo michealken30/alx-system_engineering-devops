@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Generates a MySQL dump and creates a compressed archive
+# -> The MySQL dump contains all MySQL databases
+
+# Check if the password argument is provided
+if [ -z "$1" ]; then
+    echo "Error: MySQL root password not provided."
+    echo "Usage: $0 <mysql_root_password>"
+    exit 1
+fi
+
+mysqldump -u root -p"$1" --all-databases > backup.sql
+tar -zcvf "$(date '+%d-%m-%Y').tar.gz" backup.sql
